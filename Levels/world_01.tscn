@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3k35isf0l0i1"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_fr4un"]
+[ext_resource type="Texture2D" uid="uid://crdkeuf56nkpb" path="res://Assets/Sprites Personagens/1 - Diego/Idle (32 x 48).png" id="1_q51nc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38qkh"]
+atlas = ExtResource("1_q51nc")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s77l7"]
+atlas = ExtResource("1_q51nc")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob87q"]
+atlas = ExtResource("1_q51nc")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6qwt"]
+atlas = ExtResource("1_q51nc")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2aar7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38qkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s77l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob87q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6qwt")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
+radius = 37.0
+height = 140.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5xke"]
+size = Vector2(1156, 55)
+
+[node name="World-01" type="Node2D"]
+position = Vector2(12, 68)
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(487, 360)
+script = ExtResource("1_fr4un")
+
+[node name="anim" type="AnimatedSprite2D" parent="player"]
+position = Vector2(13, -5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2aar7")
+animation = &"parado"
+autoplay = "parado"
+frame = 3
+frame_progress = 0.338678
+
+[node name="colision" type="CollisionShape2D" parent="player"]
+position = Vector2(4, 11)
+shape = SubResource("CapsuleShape2D_lkfbr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(47, 41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(518, 527)
+shape = SubResource("RectangleShape2D_h5xke")
