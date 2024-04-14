@@ -1,7 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3k35isf0l0i1"]
+[gd_scene load_steps=20 format=3 uid="uid://d3k35isf0l0i1"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fr4un"]
 [ext_resource type="Texture2D" uid="uid://crdkeuf56nkpb" path="res://Assets/Sprites Personagens/1 - Diego/Idle (32 x 48).png" id="1_q51nc"]
+[ext_resource type="Texture2D" uid="uid://cxujokishdjca" path="res://Assets/Sprites Personagens/1 - Diego/Running (32 x 48).png" id="2_uvaee"]
+[ext_resource type="Texture2D" uid="uid://clvajw0guntmo" path="res://Assets/Sprites Personagens/1 - Diego/Jump (32 x 48).png" id="4_c1ps8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
+radius = 37.0
+height = 140.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvdb0"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hf4d"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukme7"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww2x8"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4widi"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wnh3"]
+atlas = ExtResource("2_uvaee")
+region = Rect2(160, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_38qkh"]
 atlas = ExtResource("1_q51nc")
@@ -19,8 +49,35 @@ region = Rect2(64, 0, 32, 48)
 atlas = ExtResource("1_q51nc")
 region = Rect2(96, 0, 32, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfxpu"]
+atlas = ExtResource("4_c1ps8")
+region = Rect2(0, 0, 32, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2aar7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvdb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hf4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukme7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww2x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4widi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wnh3")
+}],
+"loop": true,
+"name": &"correndo",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_38qkh")
@@ -37,14 +94,21 @@ animations = [{
 "loop": true,
 "name": &"parado",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfxpu")
+}],
+"loop": true,
+"name": &"pulando",
+"speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
-radius = 37.0
-height = 140.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5xke"]
 size = Vector2(1156, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpn6k"]
+size = Vector2(18, 615)
 
 [node name="World-01" type="Node2D"]
 position = Vector2(12, 68)
@@ -53,22 +117,27 @@ position = Vector2(12, 68)
 position = Vector2(487, 360)
 script = ExtResource("1_fr4un")
 
-[node name="anim" type="AnimatedSprite2D" parent="player"]
-position = Vector2(13, -5)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_2aar7")
-animation = &"parado"
-autoplay = "parado"
-frame = 3
-frame_progress = 0.338678
-
 [node name="colision" type="CollisionShape2D" parent="player"]
 position = Vector2(4, 11)
 shape = SubResource("CapsuleShape2D_lkfbr")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="anim" type="AnimatedSprite2D" parent="player"]
+position = Vector2(13, -5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2aar7")
+animation = &"pulando"
+autoplay = "parado"
+
+[node name="animation" type="AnimationPlayer" parent="player"]
+root_node = NodePath("../..")
+
+[node name="borda" type="StaticBody2D" parent="."]
 position = Vector2(47, 41)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borda"]
 position = Vector2(518, 527)
 shape = SubResource("RectangleShape2D_h5xke")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="borda"]
+position = Vector2(-69, 198.5)
+shape = SubResource("RectangleShape2D_qpn6k")
