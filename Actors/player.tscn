@@ -1,13 +1,51 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdfqpsvthekjt"]
+[gd_scene load_steps=29 format=3 uid="uid://bdfqpsvthekjt"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dgm8k"]
+[ext_resource type="Texture2D" uid="uid://c73smjxfst468" path="res://Assets/Sprites Personagens/1 - Diego/Shooting_while_standing (48 x 48).png" id="2_dule2"]
 [ext_resource type="Texture2D" uid="uid://cxujokishdjca" path="res://Assets/Sprites Personagens/1 - Diego/Running (32 x 48).png" id="2_wv4ea"]
 [ext_resource type="Texture2D" uid="uid://crdkeuf56nkpb" path="res://Assets/Sprites Personagens/1 - Diego/Idle (32 x 48).png" id="3_hr3j4"]
+[ext_resource type="Texture2D" uid="uid://qwkbmtymytqy" path="res://Assets/Sprites Personagens/1 - Diego/Shooting_while_running (48 x 48).png" id="3_igew2"]
 [ext_resource type="Texture2D" uid="uid://clvajw0guntmo" path="res://Assets/Sprites Personagens/1 - Diego/Jump (32 x 48).png" id="4_fmo76"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
-radius = 37.0
-height = 154.0
+radius = 30.0
+height = 130.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ros43"]
+atlas = ExtResource("2_dule2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs3do"]
+atlas = ExtResource("2_dule2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cclb"]
+atlas = ExtResource("2_dule2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ikp"]
+atlas = ExtResource("3_igew2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdvni"]
+atlas = ExtResource("3_igew2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l53q"]
+atlas = ExtResource("3_igew2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buyvy"]
+atlas = ExtResource("3_igew2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lkdy"]
+atlas = ExtResource("3_igew2")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj0rq"]
+atlas = ExtResource("3_igew2")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvdb0"]
 atlas = ExtResource("2_wv4ea")
@@ -55,6 +93,43 @@ region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2aar7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ros43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs3do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cclb")
+}],
+"loop": true,
+"name": &"atirar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1ikp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdvni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l53q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buyvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lkdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj0rq")
+}],
+"loop": true,
+"name": &"atirar_correndo",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xvdb0")
@@ -114,11 +189,13 @@ position = Vector2(4, 11)
 shape = SubResource("CapsuleShape2D_lkfbr")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
-position = Vector2(12, 20)
+position = Vector2(36, 10)
 scale = Vector2(3, 2.91667)
 sprite_frames = SubResource("SpriteFrames_2aar7")
-animation = &"pulando"
+animation = &"atirar_correndo"
 autoplay = "parado"
+frame = 4
+frame_progress = 0.951822
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -127,7 +204,6 @@ root_node = NodePath("../..")
 zoom = Vector2(1.25, 1.25)
 limit_left = 0
 limit_smoothed = true
-position_smoothing_enabled = true
 drag_right_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
