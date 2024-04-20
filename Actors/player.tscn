@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdfqpsvthekjt"]
+[gd_scene load_steps=33 format=3 uid="uid://bdfqpsvthekjt"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dgm8k"]
 [ext_resource type="Texture2D" uid="uid://c73smjxfst468" path="res://Assets/Sprites Personagens/1 - Diego/Shooting_while_standing (48 x 48).png" id="2_dule2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crdkeuf56nkpb" path="res://Assets/Sprites Personagens/1 - Diego/Idle (32 x 48).png" id="3_hr3j4"]
 [ext_resource type="Texture2D" uid="uid://qwkbmtymytqy" path="res://Assets/Sprites Personagens/1 - Diego/Shooting_while_running (48 x 48).png" id="3_igew2"]
 [ext_resource type="Texture2D" uid="uid://clvajw0guntmo" path="res://Assets/Sprites Personagens/1 - Diego/Jump (32 x 48).png" id="4_fmo76"]
+[ext_resource type="Texture2D" uid="uid://yoi3yblab2s0" path="res://Assets/Sprites Personagens/1 - Diego/Shooting_while_jumping (48 x 48).png" id="4_yjuls"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
 radius = 30.0
@@ -46,6 +47,18 @@ region = Rect2(192, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tj0rq"]
 atlas = ExtResource("3_igew2")
 region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvfca"]
+atlas = ExtResource("4_yjuls")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnh4v"]
+atlas = ExtResource("4_yjuls")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o8kq"]
+atlas = ExtResource("4_yjuls")
+region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvdb0"]
 atlas = ExtResource("2_wv4ea")
@@ -132,6 +145,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jvfca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnh4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o8kq")
+}],
+"loop": true,
+"name": &"atirar_pulando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xvdb0")
 }, {
 "duration": 1.0,
@@ -192,10 +219,8 @@ shape = SubResource("CapsuleShape2D_lkfbr")
 position = Vector2(36, 10)
 scale = Vector2(3, 2.91667)
 sprite_frames = SubResource("SpriteFrames_2aar7")
-animation = &"atirar_correndo"
+animation = &"atirar_pulando"
 autoplay = "parado"
-frame = 4
-frame_progress = 0.951822
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
