@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d3k35isf0l0i1"]
+[gd_scene load_steps=32 format=3 uid="uid://d3k35isf0l0i1"]
 
 [ext_resource type="Texture2D" uid="uid://dlhdlwsjkr6k8" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_rg11q"]
 [ext_resource type="Texture2D" uid="uid://b7mrp18lia24a" path="res://Assets/Cyberpunk platformer - World starter/buildings/building_02.png" id="2_wdekj"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://pu1bdhfrx4vb" path="res://Assets/free-city-backgrounds-pixel-art/city 4/3.png" id="15_y04lg"]
 [ext_resource type="Texture2D" uid="uid://b0raulg8v6a0y" path="res://Assets/free-city-backgrounds-pixel-art/city 4/4.png" id="16_yjghm"]
 [ext_resource type="Texture2D" uid="uid://cws5ksthm71b5" path="res://Assets/free-city-backgrounds-pixel-art/city 4/5.png" id="17_3ohro"]
+[ext_resource type="PackedScene" uid="uid://nawkxiy56rer" path="res://Actors/enemy.tscn" id="18_ygya0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_06e0j"]
 tile_data = PackedInt32Array(0, 65537, 0)
@@ -6904,3 +6905,12 @@ position = Vector2(-13, 187)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("17_3ohro")
 centered = false
+
+[node name="enemy" parent="." instance=ExtResource("18_ygya0")]
+position = Vector2(708, 464)
+
+[node name="enemy2" parent="." instance=ExtResource("18_ygya0")]
+position = Vector2(984, 381)
+
+[node name="enemy3" parent="." instance=ExtResource("18_ygya0")]
+position = Vector2(980, 460)
