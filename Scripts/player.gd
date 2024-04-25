@@ -35,7 +35,7 @@ func _physics_process(delta):
 	direction = Input.get_axis("left_move", "rigth_move")
 	if direction:
 		velocity.x = direction * SPEED
-		animation.scale.x = direction * 3
+		animation.scale.x = direction * 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 			
@@ -48,8 +48,6 @@ func handle_animation():
 	elif direction and !is_shooting:
 		animation.play("correndo")
 	elif !direction and is_shooting:
-		animation.play("atirar")
-	elif is_shooting and direction:
-		animation.play("atirar_correndo")
+		animation.play("bater")
 	else:
 		animation.play("parado")

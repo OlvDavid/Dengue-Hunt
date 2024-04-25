@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bss2f4ae3fb83"
-path="res://.godot/imported/Flying_(32 x 32).png-ced30e2eee38a5a2aece413440bacedc.ctex"
+uid="uid://dvkankwqjov0r"
+path="res://.godot/imported/Hurt_(32 x 32).png-edc8602e9df6f6231fe4f606c337c0f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Actors/Flying_(32 x 32).png"
-dest_files=["res://.godot/imported/Flying_(32 x 32).png-ced30e2eee38a5a2aece413440bacedc.ctex"]
+source_file="res://Assets/Mosquito/Hurt_(32 x 32).png"
+dest_files=["res://.godot/imported/Hurt_(32 x 32).png-edc8602e9df6f6231fe4f606c337c0f9.ctex"]
 
 [params]
 

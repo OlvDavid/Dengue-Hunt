@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsolone46s8pr"
-path="res://.godot/imported/Sting_Attack_(32 x 32).png-e7115998a0be6aefdd69b0d538d04e8a.ctex"
+uid="uid://bq601wssrave8"
+path="res://.godot/imported/Death.png-798f38d46f031149b5438e7522b9c33e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Actors/Sting_Attack_(32 x 32).png"
-dest_files=["res://.godot/imported/Sting_Attack_(32 x 32).png-e7115998a0be6aefdd69b0d538d04e8a.ctex"]
+source_file="res://Assets/Pack Medieval Raquete/Death.png"
+dest_files=["res://.godot/imported/Death.png-798f38d46f031149b5438e7522b9c33e.ctex"]
 
 [params]
 

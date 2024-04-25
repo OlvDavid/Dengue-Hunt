@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvkankwqjov0r"
-path="res://.godot/imported/Hurt_(32 x 32).png-e95de479f57436a6d56dab99ce25c17a.ctex"
+uid="uid://lx4vkvfie18n"
+path="res://.godot/imported/Run.png-fb96dc4924d2b580a6d8c3fd5ef3fb0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Actors/Hurt_(32 x 32).png"
-dest_files=["res://.godot/imported/Hurt_(32 x 32).png-e95de479f57436a6d56dab99ce25c17a.ctex"]
+source_file="res://Assets/Pack Medieval Raquete/Run.png"
+dest_files=["res://.godot/imported/Run.png-fb96dc4924d2b580a6d8c3fd5ef3fb0b.ctex"]
 
 [params]
 
