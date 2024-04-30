@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdfqpsvthekjt"]
+[gd_scene load_steps=29 format=3 uid="uid://bdfqpsvthekjt"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dgm8k"]
 [ext_resource type="Texture2D" uid="uid://dhfhqinebv6kc" path="res://Assets/Pack Medieval Raquete/Attack1 (3).png" id="2_lgra7"]
@@ -173,12 +173,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6063m"]
+size = Vector2(44, 72.5)
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-collision_mask = 2
+collision_mask = 22
 script = ExtResource("1_dgm8k")
 
 [node name="colision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_lkfbr")
 
@@ -199,3 +203,12 @@ drag_top_margin = 0.26
 drag_right_margin = 0.1
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="hutbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="colision" type="CollisionShape2D" parent="hutbox"]
+position = Vector2(4, -8.25)
+shape = SubResource("RectangleShape2D_6063m")
+debug_color = Color(0.976471, 0.0588235, 0.352941, 0.419608)
