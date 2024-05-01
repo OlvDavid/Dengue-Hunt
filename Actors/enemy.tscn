@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnl2vvkn3dvu5"]
+[gd_scene load_steps=13 format=3 uid="uid://dnl2vvkn3dvu5"]
 
 [ext_resource type="Texture2D" uid="uid://bss2f4ae3fb83" path="res://Assets/Mosquito/Flying_(32 x 32).png" id="1_8qini"]
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_vfkv7"]
 [ext_resource type="Texture2D" uid="uid://dvkankwqjov0r" path="res://Assets/Mosquito/Hurt_(32 x 32).png" id="2_n7oh7"]
 [ext_resource type="Texture2D" uid="uid://bsolone46s8pr" path="res://Assets/Mosquito/Sting_Attack_(32 x 32).png" id="3_j61w8"]
+[ext_resource type="PackedScene" uid="uid://b85h5p2loi8x" path="res://Scripts/hitbox.tscn" id="5_6fxrw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6krgp"]
-radius = 11.0454
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih2u5"]
+size = Vector2(20, 11)
 
 [sub_resource type="Animation" id="Animation_cxvqe"]
 length = 0.001
@@ -177,30 +178,40 @@ _data = {
 "hurt": SubResource("Animation_p3s6v")
 }
 
-[node name="enemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b3ua"]
+radius = 9.05539
+
+[node name="enemy" type="CharacterBody2D" groups=["enemie"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_vfkv7")
 
 [node name="colision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-1, -7)
-shape = SubResource("CircleShape2D_6krgp")
+position = Vector2(-1, -6)
+shape = SubResource("RectangleShape2D_ih2u5")
 
 [node name="texture" type="Sprite2D" parent="."]
 position = Vector2(-1, -10)
 texture = ExtResource("1_8qini")
 hframes = 4
 
-[node name="anim" type="AnimationPlayer" parent="."]
+[node name="anim" type="AnimationPlayer" parent="." groups=["enemies"]]
 root_node = NodePath("../texture")
 libraries = {
 "": SubResource("AnimationLibrary_jeayj")
 }
-autoplay = "flying"
 speed_scale = 0.5
 
 [node name="wall_detector" type="RayCast2D" parent="."]
 position = Vector2(0, -9)
 target_position = Vector2(-18, 0)
-collision_mask = 6
+collision_mask = 38
+
+[node name="hitbox" parent="." instance=ExtResource("5_6fxrw")]
+modulate = Color(0.514305, 0.99, 0.0693, 1)
+
+[node name="collision" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1, -13)
+shape = SubResource("CircleShape2D_8b3ua")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

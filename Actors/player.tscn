@@ -1,14 +1,15 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdfqpsvthekjt"]
+[gd_scene load_steps=40 format=3 uid="uid://bdfqpsvthekjt"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dgm8k"]
 [ext_resource type="Texture2D" uid="uid://dhfhqinebv6kc" path="res://Assets/Pack Medieval Raquete/Attack1 (3).png" id="2_lgra7"]
 [ext_resource type="Texture2D" uid="uid://lx4vkvfie18n" path="res://Assets/Pack Medieval Raquete/Run.png" id="3_ebxhd"]
+[ext_resource type="Texture2D" uid="uid://bq601wssrave8" path="res://Assets/Pack Medieval Raquete/Death.png" id="4_k3rdb"]
 [ext_resource type="Texture2D" uid="uid://dpa6ehmpeeoqe" path="res://Assets/Pack Medieval Raquete/Idle.png" id="4_tsrb1"]
 [ext_resource type="Texture2D" uid="uid://d00bhjr2b4d68" path="res://Assets/Pack Medieval Raquete/Jump.png" id="5_b2woi"]
+[ext_resource type="Script" path="res://Actors/hutbox.gd" id="7_b0fq8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
-radius = 22.0
-height = 78.0
+height = 68.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14ut0"]
 atlas = ExtResource("2_lgra7")
@@ -57,6 +58,42 @@ region = Rect2(1104, 0, 184, 137)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uq2f1"]
 atlas = ExtResource("3_ebxhd")
 region = Rect2(1288, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dipbv"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(0, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5hhi"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(184, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8efr"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(368, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slyag"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(552, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3o75"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(736, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol3kg"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(920, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovy0"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(1104, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isdnw"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(1288, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cugkh"]
+atlas = ExtResource("4_k3rdb")
+region = Rect2(1472, 0, 184, 137)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42lh0"]
 atlas = ExtResource("4_tsrb1")
@@ -140,6 +177,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dipbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5hhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8efr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slyag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3o75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol3kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isdnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cugkh")
+}],
+"loop": true,
+"name": &"morrendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_42lh0")
 }, {
 "duration": 1.0,
@@ -173,8 +242,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6063m"]
-size = Vector2(44, 72.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ji831"]
+radius = 16.0
+height = 72.0
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -187,15 +257,18 @@ position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_lkfbr")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -22)
+position = Vector2(8, -12)
 sprite_frames = SubResource("SpriteFrames_2aar7")
-animation = &"parado"
+animation = &"correndo"
 autoplay = "parado"
+frame = 1
+frame_progress = 0.103216
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 
 [node name="camera" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(1.95, 1.95)
 limit_left = 0
 limit_smoothed = true
@@ -207,8 +280,14 @@ editor_draw_drag_margin = true
 [node name="hutbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
+script = ExtResource("7_b0fq8")
 
 [node name="colision" type="CollisionShape2D" parent="hutbox"]
-position = Vector2(4, -8.25)
-shape = SubResource("RectangleShape2D_6063m")
+position = Vector2(2, -8)
+shape = SubResource("CapsuleShape2D_ji831")
 debug_color = Color(0.976471, 0.0588235, 0.352941, 0.419608)
+
+[node name="remote" type="RemoteTransform2D" parent="."]
+position = Vector2(4, -12)
+
+[connection signal="body_entered" from="hutbox" to="." method="_on_hutbox_body_entered"]
