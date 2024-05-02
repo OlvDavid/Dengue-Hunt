@@ -251,7 +251,7 @@ shape = SubResource("CapsuleShape2D_lkfbr")
 [node name="anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -8)
 sprite_frames = SubResource("SpriteFrames_2aar7")
-animation = &"dano"
+animation = &"morrendo"
 autoplay = "parado"
 
 [node name="animation" type="AnimationPlayer" parent="."]

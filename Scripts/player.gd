@@ -11,6 +11,7 @@ const JUMP_FORCE = -350.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping := false
 var is_hurted := false
+var is_dead := false
 var direction
 var player_life := 3
 var knockback_vector := Vector2.ZERO
@@ -56,6 +57,11 @@ func follow_camera(camera):
 func take_damage(knocback_force := Vector2.ZERO, duration := 0.25):
 	player_life -= 1
 	
+	if player_life == 0:
+		is_dead = true 
+		await get_tree().create_timer(.9).timeout
+		queue_free()
+	
 	if knocback_force != Vector2.ZERO:
 		knockback_vector = knocback_force
 		
@@ -79,6 +85,11 @@ func _set_state():
 	if is_hurted:
 		state = "dano"	
 		
+	if is_dead:
+		state = "morrendo"
+		
 	if animation.name != state:
 		animation.play(state)
+		
+		
 		
