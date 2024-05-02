@@ -14,6 +14,10 @@ config/name="Dengue-hunt"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://singletons/globals.gd"
+
 [display]
 
 window/stretch/scale=2.0
