@@ -10,10 +10,8 @@ const JUMP_FORCE = -350.0
 #Variaveis globais do Projeto
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping := false
-var is_shooting := false
+var is_hurted := false
 var direction
-var is_crounching := false
-
 var player_life := 3
 var knockback_vector := Vector2.ZERO
 var knockback_power := 20
@@ -30,11 +28,6 @@ func _physics_process(delta):
 	elif is_on_floor():
 		is_jumping = false
 	
-	#Acionar Tiro	
-	if Input.is_action_pressed("fire"):
-		is_shooting = true
-	else:
-		is_shooting = false
 		
 	#Movimentação do Personagem(Direita e esquerda)
 	direction = Input.get_axis("left_move", "rigth_move")
@@ -48,18 +41,8 @@ func _physics_process(delta):
 		velocity = knockback_vector
 			
 	move_and_slide()
-	handle_animation()
+	_set_state()
 	
-func handle_animation():
-	if !is_on_floor() and !is_shooting:
-		animation.play("pulando")
-	elif direction and !is_shooting:
-		animation.play("correndo")
-	elif !direction and is_shooting:
-		animation.play("bater")
-	else:
-		animation.play("parado")
-
 
 func _on_hutbox_body_entered(body: Node2D) -> void:
 	var knockback = Vector2((global_position.x - body.global_position.x) * knockback_power, -200)
@@ -80,3 +63,22 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25):
 		knockback_tween.parallel().tween_property(self, "knockback_vector", Vector2.ZERO, duration)
 		animation.modulate = Color(1,0,0,1)
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
+	
+	is_hurted = true
+	await get_tree().create_timer(.3).timeout
+	is_hurted = false
+
+func _set_state():
+	var state = "parado"
+	
+	if !is_on_floor():
+		state = "pulando"
+	elif direction != 0:
+		state = "correndo"
+		
+	if is_hurted:
+		state = "dano"	
+		
+	if animation.name != state:
+		animation.play(state)
+		

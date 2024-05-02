@@ -6855,7 +6855,7 @@ layer_3/tile_data = PackedInt32Array(2031616, 655360, 0, 2031617, 524288, 0, 203
 
 [node name="player" parent="." instance=ExtResource("3_a4mpa")]
 position = Vector2(17, 483)
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.75, 0.75)
 
 [node name="BG" type="ParallaxBackground" parent="."]
 
