@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://diwugb1jud2k5"]
+
+[ext_resource type="Theme" uid="uid://n42g6s2f8h5p" path="res://prefabs/tema.tres" id="1_0wy0n"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_uwxlc"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_uwxlc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0196078, 0.0156863, 0.00784314, 0.588235)
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="menu"]
+layout_mode = 2
+theme = ExtResource("1_0wy0n")
+text = "RESUME"
+
+[node name="exit_game" type="Button" parent="menu"]
+layout_mode = 2
+theme = ExtResource("1_0wy0n")
+text = "SAIR DO JOGO"
+
+[connection signal="pressed" from="menu/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="menu/exit_game" to="." method="_on_exit_game_pressed"]

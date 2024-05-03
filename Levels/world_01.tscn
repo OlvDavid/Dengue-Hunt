@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d3k35isf0l0i1"]
+[gd_scene load_steps=39 format=3 uid="uid://d3k35isf0l0i1"]
 
 [ext_resource type="Script" path="res://Scripts/world_01.gd" id="1_ff2l6"]
 [ext_resource type="Texture2D" uid="uid://dlhdlwsjkr6k8" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_rg11q"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d1udaa7jydow1" path="res://Assets/life/Heart_Spin (16 x 16).png" id="20_58nq3"]
 [ext_resource type="Script" path="res://Hud/control.gd" id="20_xkqkm"]
 [ext_resource type="FontFile" uid="uid://dy15txiusdhh8" path="res://fonts/ThaleahFat.ttf" id="21_pc872"]
+[ext_resource type="PackedScene" uid="uid://diwugb1jud2k5" path="res://prefabs/pause_menu.tscn" id="23_8xccn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_06e0j"]
 tile_data = PackedInt32Array(0, 65537, 0)
@@ -6960,6 +6961,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 49.0
+offset_right = -2.0
+offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -6984,3 +6989,5 @@ layout_mode = 2
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("21_pc872")
 text = "03"
+
+[node name="pause_menu" parent="CanvasLayer/control/container" instance=ExtResource("23_8xccn")]

@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://n42g6s2f8h5p"]
+
+[ext_resource type="FontFile" uid="uid://dy15txiusdhh8" path="res://fonts/ThaleahFat.ttf" id="1_nwjf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lho7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxpjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkf4g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ssuhk"]
+
+[resource]
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0.85098, 0, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_nwjf7")
+Button/styles/focus = SubResource("StyleBoxEmpty_lho7c")
+Button/styles/hover = SubResource("StyleBoxEmpty_xxpjx")
+Button/styles/normal = SubResource("StyleBoxEmpty_fkf4g")
+Button/styles/pressed = SubResource("StyleBoxEmpty_ssuhk")
