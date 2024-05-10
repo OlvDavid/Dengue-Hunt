@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b85h5p2loi8x"]
 
-[ext_resource type="Script" path="res://hitbox.gd" id="1_8mnjm"]
+[ext_resource type="Script" path="res://Scripts/hitbox.gd" id="1_8mnjm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f2tjw"]
 
