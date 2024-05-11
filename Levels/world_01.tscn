@@ -6923,7 +6923,7 @@ texture = ExtResource("17_3ohro")
 centered = false
 
 [node name="camera" type="Camera2D" parent="."]
-zoom = Vector2(1.95, 1.95)
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_smoothed = true
 drag_top_margin = 0.26
@@ -6961,10 +6961,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 49.0
-offset_right = -2.0
-offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 
