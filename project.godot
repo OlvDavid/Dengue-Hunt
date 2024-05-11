@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dengue-hunt"
-run/main_scene="res://prefabs/tela_inicial.tscn"
+run/main_scene="res://scenes/tela_inicial.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

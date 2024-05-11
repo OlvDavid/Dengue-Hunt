@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyjyyvo3eqwql"]
 
-[ext_resource type="Texture2D" uid="uid://b838k1j4mx8wj" path="res://Assets/free-city-backgrounds-pixel-art/city 1/10.png" id="1_1gihx"]
-[ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_4ackc"]
-[ext_resource type="Texture2D" uid="uid://bivnxgjiww1ok" path="res://prefabs/Logo_DengueHunt.png" id="2_iu1k4"]
-[ext_resource type="Theme" uid="uid://de4q4ppbohcu5" path="res://tema_butao.tres" id="3_12es5"]
+[ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_ssupk"]
+[ext_resource type="Texture2D" uid="uid://b838k1j4mx8wj" path="res://Assets/free-city-backgrounds-pixel-art/city 1/10.png" id="2_hyyui"]
+[ext_resource type="Texture2D" uid="uid://bivnxgjiww1ok" path="res://prefabs/Logo_DengueHunt.png" id="3_7omkf"]
+[ext_resource type="Theme" uid="uid://de4q4ppbohcu5" path="res://tema_butao.tres" id="4_nqe3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwnq7"]
 
@@ -14,13 +14,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ackc")
+script = ExtResource("1_ssupk")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_1gihx")
+texture = ExtResource("2_hyyui")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -44,12 +44,12 @@ size_flags_horizontal = 4
 [node name="game_logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_iu1k4")
+texture = ExtResource("3_7omkf")
 expand_mode = 2
 
 [node name="INICIAR" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_12es5")
+theme = ExtResource("4_nqe3k")
 text = "INICIAR"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -59,7 +59,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_qwnq7")
 [node name="SAIR" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("3_12es5")
+theme = ExtResource("4_nqe3k")
 text = "SAIR DO JOGO"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/INICIAR" to="." method="_on_iniciar_pressed"]
