@@ -6947,10 +6947,10 @@ editor_draw_drag_margin = true
 [node name="enemys" type="Node2D" parent="."]
 
 [node name="enemy1" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(1957, 485)
+position = Vector2(1956, 475)
 
 [node name="enemy5" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(1078, 486)
+position = Vector2(1080, 473)
 
 [node name="enemy6" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
 position = Vector2(1527, 483)
@@ -6962,13 +6962,13 @@ position = Vector2(2786, 479)
 position = Vector2(2314, 477)
 
 [node name="enemy4" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(436, 494)
+position = Vector2(437, 473)
 
 [node name="enemy2" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(626, 492)
+position = Vector2(627, 475)
 
 [node name="enemy3" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(927, 426)
+position = Vector2(926, 410)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
