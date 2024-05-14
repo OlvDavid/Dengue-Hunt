@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyjyyvo3eqwql"]
+[gd_scene load_steps=7 format=3 uid="uid://dyjyyvo3eqwql"]
 
 [ext_resource type="Script" path="res://Scripts/tela_inicial.gd" id="1_ssupk"]
 [ext_resource type="Texture2D" uid="uid://b838k1j4mx8wj" path="res://Assets/free-city-backgrounds-pixel-art/city 1/10.png" id="2_hyyui"]
 [ext_resource type="Texture2D" uid="uid://bivnxgjiww1ok" path="res://prefabs/Logo_DengueHunt.png" id="3_7omkf"]
 [ext_resource type="Theme" uid="uid://de4q4ppbohcu5" path="res://tema_butao.tres" id="4_nqe3k"]
+[ext_resource type="AudioStream" uid="uid://bfqcvaqpqxqg0" path="res://sound/731612__seth_makes_sounds__almostsummer.wav" id="5_dctix"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwnq7"]
 
@@ -61,6 +62,11 @@ layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("4_nqe3k")
 text = "SAIR DO JOGO"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dctix")
+volume_db = -0.395
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/INICIAR" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SAIR" to="." method="_on_sair_pressed"]

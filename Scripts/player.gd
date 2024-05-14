@@ -6,6 +6,11 @@ const JUMP_FORCE = -350.0
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
+@onready var jump_sfx = $jump_sfx as AudioStreamPlayer	
+@onready var damage_sfx = $damage_sfx as AudioStreamPlayer
+@onready var death_sfx = $death_sfx as AudioStreamPlayer
+@onready var walk_sfx = $walk_sfx as AudioStreamPlayer
+
 
 signal player_has_died()	
 
@@ -27,6 +32,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_FORCE 
 		is_jumping = true
+		jump_sfx.play()
 	elif is_on_floor():
 		is_jumping = false
 	
@@ -61,6 +67,7 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25):
 	
 	else:
 		is_dead = true 
+		death_sfx.play()
 		await get_tree().create_timer(.9).timeout
 		queue_free()
 		emit_signal("player_has_died")
@@ -74,6 +81,7 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25):
 		knockback_tween.parallel().tween_property(animation, "modulate", Color(1,1,1,1), duration)
 	
 	is_hurted = true
+	damage_sfx.play()
 	await get_tree().create_timer(.3).timeout
 	is_hurted = false
 

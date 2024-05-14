@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d3k35isf0l0i1"]
+[gd_scene load_steps=48 format=3 uid="uid://d3k35isf0l0i1"]
 
 [ext_resource type="Script" path="res://Scripts/world_01.gd" id="1_ff2l6"]
 [ext_resource type="Texture2D" uid="uid://dlhdlwsjkr6k8" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="1_rg11q"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Scripts/transition.gd" id="25_w51co"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="26_n0y62"]
 [ext_resource type="Script" path="res://Scripts/color_rect.gd" id="27_jdw7h"]
+[ext_resource type="AudioStream" uid="uid://d256rilarm5c0" path="res://sound/1.wav" id="28_tq4l4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_06e0j"]
 tile_data = PackedInt32Array(0, 65537, 0)
@@ -7040,3 +7041,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_jdw7h")
 metadata/_edit_use_anchors_ = true
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_tq4l4")
+autoplay = true

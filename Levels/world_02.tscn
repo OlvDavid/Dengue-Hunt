@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://byw5tii24krxc"]
+[gd_scene load_steps=43 format=3 uid="uid://byw5tii24krxc"]
 
 [ext_resource type="Script" path="res://Scripts/world_01.gd" id="1_00j76"]
 [ext_resource type="Texture2D" uid="uid://dlhdlwsjkr6k8" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="2_3kb73"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d1udaa7jydow1" path="res://Assets/life/Heart_Spin (16 x 16).png" id="22_vwbcp"]
 [ext_resource type="FontFile" uid="uid://dy15txiusdhh8" path="res://fonts/ThaleahFat.ttf" id="23_bqjen"]
 [ext_resource type="PackedScene" uid="uid://diwugb1jud2k5" path="res://scenes/pause_menu.tscn" id="24_4h7wr"]
+[ext_resource type="AudioStream" uid="uid://d256rilarm5c0" path="res://sound/1.wav" id="24_rw8ld"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_06e0j"]
 tile_data = PackedInt32Array(0, 65537, 0)
@@ -7064,3 +7065,7 @@ theme_override_fonts/font = ExtResource("23_bqjen")
 text = "03"
 
 [node name="pause_menu" parent="CanvasLayer/control/container" instance=ExtResource("24_4h7wr")]
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_rw8ld")
+autoplay = true

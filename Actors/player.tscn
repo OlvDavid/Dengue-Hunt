@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bdfqpsvthekjt"]
+[gd_scene load_steps=42 format=3 uid="uid://bdfqpsvthekjt"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_dgm8k"]
 [ext_resource type="Texture2D" uid="uid://dkdg77adf5pos" path="res://Assets/Medieval Warrior Pack 2/Sprites/Run.png" id="2_8l5tj"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b3yjmqmfn537l" path="res://Assets/Medieval Warrior Pack 2/Sprites/Idle.png" id="5_egpsh"]
 [ext_resource type="Texture2D" uid="uid://cdrmfgg8beiyl" path="res://Assets/Medieval Warrior Pack 2/Sprites/Jump.png" id="6_g2qxg"]
 [ext_resource type="Script" path="res://Actors/hutbox.gd" id="7_b0fq8"]
+[ext_resource type="AudioStream" uid="uid://b504i5s8ncyju" path="res://sound/jump.wav" id="8_70wgr"]
+[ext_resource type="AudioStream" uid="uid://c7x7jlngotink" path="res://sound/damage.wav" id="9_br0ym"]
+[ext_resource type="AudioStream" uid="uid://covpwux8xfwe0" path="res://sound/death.mp3" id="10_vk7it"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkfbr"]
 height = 40.0
@@ -278,5 +281,14 @@ debug_color = Color(0.976471, 0.0588235, 0.352941, 0.419608)
 
 [node name="remote" type="RemoteTransform2D" parent="."]
 position = Vector2(4, -12)
+
+[node name="jump_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_70wgr")
+
+[node name="damage_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_br0ym")
+
+[node name="death_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_vk7it")
 
 [connection signal="body_entered" from="hutbox" to="." method="_on_hutbox_body_entered"]

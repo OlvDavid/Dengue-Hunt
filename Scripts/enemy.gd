@@ -30,5 +30,6 @@ func _physics_process(delta):
 
 func _on_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hurt":
+		await get_tree().create_timer(.3).timeout
 		queue_free()
 	
