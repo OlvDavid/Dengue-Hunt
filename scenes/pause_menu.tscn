@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwugb1jud2k5"]
+[gd_scene load_steps=5 format=3 uid="uid://diwugb1jud2k5"]
 
 [ext_resource type="Theme" uid="uid://n42g6s2f8h5p" path="res://prefabs/tema.tres" id="1_0wy0n"]
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_uwxlc"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_htpq2"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_tu2lp"]
+events = [SubResource("InputEventAction_htpq2")]
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
@@ -29,6 +35,7 @@ grow_vertical = 2
 [node name="resume" type="Button" parent="menu"]
 layout_mode = 2
 theme = ExtResource("1_0wy0n")
+shortcut = SubResource("Shortcut_tu2lp")
 text = "RESUME"
 
 [node name="exit_game" type="Button" parent="menu"]
