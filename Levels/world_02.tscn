@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://byw5tii24krxc"]
+[gd_scene load_steps=48 format=3 uid="uid://byw5tii24krxc"]
 
 [ext_resource type="Script" path="res://Scripts/world_01.gd" id="1_00j76"]
 [ext_resource type="Texture2D" uid="uid://dlhdlwsjkr6k8" path="res://Assets/oak_woods_v1.0/oak_woods_v1.0/oak_woods_tileset.png" id="2_3kb73"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ie1ul8v54e4w" path="res://Assets/Cyberpunk platformer - World starter/buildings/building_01.png" id="12_vojfk"]
 [ext_resource type="PackedScene" uid="uid://bdfqpsvthekjt" path="res://Actors/player.tscn" id="13_5ldwn"]
 [ext_resource type="Texture2D" uid="uid://cfm65kgy224tr" path="res://Assets/free-city-backgrounds-pixel-art/city 3/1.png" id="14_7jnef"]
+[ext_resource type="PackedScene" uid="uid://dl6nhiit66dtu" path="res://prefabs/goal2.tscn" id="14_yw6yb"]
 [ext_resource type="Texture2D" uid="uid://dfego20jb06n" path="res://Assets/free-city-backgrounds-pixel-art/city 3/2.png" id="15_u2tht"]
 [ext_resource type="Texture2D" uid="uid://ps0outfj02u1" path="res://Assets/free-city-backgrounds-pixel-art/city 3/3.png" id="16_xrplc"]
 [ext_resource type="Texture2D" uid="uid://b2w43q72qmpmp" path="res://Assets/free-city-backgrounds-pixel-art/city 3/4.png" id="17_5sn4x"]
@@ -24,6 +25,9 @@
 [ext_resource type="FontFile" uid="uid://dy15txiusdhh8" path="res://fonts/ThaleahFat.ttf" id="23_bqjen"]
 [ext_resource type="PackedScene" uid="uid://diwugb1jud2k5" path="res://scenes/pause_menu.tscn" id="24_4h7wr"]
 [ext_resource type="AudioStream" uid="uid://d256rilarm5c0" path="res://sound/1.wav" id="24_rw8ld"]
+[ext_resource type="Script" path="res://Scripts/transition.gd" id="25_g2lv6"]
+[ext_resource type="Shader" path="res://shaders/transition.gdshader" id="26_fieme"]
+[ext_resource type="Script" path="res://Scripts/color_rect.gd" id="27_vu3wm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_06e0j"]
 tile_data = PackedInt32Array(0, 65537, 0)
@@ -6888,6 +6892,13 @@ pattern_3 = SubResource("TileMapPattern_2rwym")
 pattern_4 = SubResource("TileMapPattern_easht")
 pattern_5 = SubResource("TileMapPattern_rae1u")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyg46"]
+shader = ExtResource("26_fieme")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+
 [node name="World-02" type="Node2D"]
 position = Vector2(12, 68)
 script = ExtResource("1_00j76")
@@ -6909,6 +6920,11 @@ layer_4/tile_data = PackedInt32Array(2031616, 655360, 0, 2031617, 524288, 0, 203
 [node name="player" parent="." instance=ExtResource("13_5ldwn")]
 position = Vector2(19.0001, 480)
 scale = Vector2(0.75, 0.75)
+
+[node name="goal2" parent="." instance=ExtResource("14_yw6yb")]
+position = Vector2(4774, 469)
+scale = Vector2(0.5, 0.5)
+next_level = "res://scenes/tela_inicial.tscn"
 
 [node name="BG" type="ParallaxBackground" parent="."]
 
@@ -7065,6 +7081,19 @@ theme_override_fonts/font = ExtResource("23_bqjen")
 text = "03"
 
 [node name="pause_menu" parent="CanvasLayer/control/container" instance=ExtResource("24_4h7wr")]
+
+[node name="transition" type="CanvasLayer" parent="."]
+script = ExtResource("25_g2lv6")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_wyg46")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_vu3wm")
+metadata/_edit_use_anchors_ = true
 
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_rw8ld")
