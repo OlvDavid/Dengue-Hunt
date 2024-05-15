@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://s4ndbdrow24r"]
+
+[ext_resource type="Texture2D" uid="uid://dpa6ehmpeeoqe" path="res://Assets/Pack Medieval Raquete/Idle.png" id="1_cvjsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nksld"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(0, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk1ok"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(184, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83uak"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(368, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpvwi"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(552, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg2ph"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(736, 0, 184, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvnsk"]
+atlas = ExtResource("1_cvjsr")
+region = Rect2(920, 0, 184, 137)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mefil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nksld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk1ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83uak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpvwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg2ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvnsk")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[node name="warning_sign" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_mefil")
+animation = &"parado"
+autoplay = "parado"
+
+[node name="area" type="Area2D" parent="."]
