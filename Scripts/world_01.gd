@@ -5,11 +5,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	player.follow_camera(camera)
-	player.player_has_died.connect(reload_game)
+	player.player_has_died.connect(game_over)
 	Globals.player_life = 3
-
-func reload_game():
-	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+	
+	
+	
+func game_over():
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	
