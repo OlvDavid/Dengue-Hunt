@@ -6995,13 +6995,10 @@ position = Vector2(1956, 475)
 position = Vector2(1080, 473)
 
 [node name="enemy6" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(1527, 483)
+position = Vector2(1616, 476)
 
 [node name="enemy7" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(3268, 473)
-
-[node name="enemy8" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(2314, 477)
+position = Vector2(3286, 473)
 
 [node name="enemy10" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
 position = Vector2(2160, 477)
@@ -7019,25 +7016,25 @@ position = Vector2(3493, 477)
 position = Vector2(3772, 480)
 
 [node name="enemy16" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(4190, 481)
+position = Vector2(4306, 476)
 
 [node name="enemy17" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(4536, 480)
+position = Vector2(4782, 476)
 
 [node name="enemy11" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
 position = Vector2(2486, 483)
 
 [node name="enemy4" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(437, 473)
+position = Vector2(262, 467)
 
 [node name="enemy2" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(627, 475)
+position = Vector2(612, 477)
 
 [node name="enemy3" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(839, 477)
+position = Vector2(941, 475)
 
 [node name="enemy9" parent="enemys" groups=["enemy"] instance=ExtResource("19_lme6c")]
-position = Vector2(1471, 478)
+position = Vector2(1276, 474)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -7026,10 +7026,10 @@ position = Vector2(1956, 475)
 position = Vector2(1080, 473)
 
 [node name="enemy6" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(1527, 483)
+position = Vector2(1781, 476)
 
 [node name="enemy7" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
-position = Vector2(2786, 479)
+position = Vector2(3047, 473)
 
 [node name="enemy8" parent="enemys" groups=["enemy"] instance=ExtResource("18_ygya0")]
 position = Vector2(2314, 477)
